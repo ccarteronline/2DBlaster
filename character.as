@@ -11,6 +11,7 @@
 		private var jumpThreshold:Number = 0;
 		public var maxJump:Number = 3;
 		public var facingPosition:String = "right";//character faces right by default
+		public var _bullet:bullet;
 		
 		public function character() {
 			// constructor code
@@ -35,8 +36,6 @@
 				this.createGravity(gravityStrength);
 			}
 			
-			
-			
 		}
 		
 		public function createGravity(amount:Number){
@@ -51,10 +50,10 @@
 		}
 		
 		public function shoot(){
-			var _bullet = new bullet(this.facingPosition);
+			 _bullet = new bullet(this.facingPosition);
 			_bullet.x = this.x;
 			_bullet.y = this.y;
-			
+			//
 			stage.addChild(_bullet);
 		}
 	}

@@ -6,6 +6,7 @@
 	
 	public class skyTile extends MovieClip {
 		private var characterToBeHit:MovieClip;
+		public var bulletObject:MovieClip;
 		private var gravityStrength:Number;
 		public var characterTileThreshold:Number;
 		

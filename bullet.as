@@ -5,7 +5,7 @@
 	
 	
 	public class bullet extends MovieClip {
-		
+		private var _root = MovieClip(root);
 		public var bulletSpeed:Number = 10;
 		public var bulletPosition:String = "right";
 		
@@ -23,6 +23,9 @@
 			}else if(this.bulletPosition == "left"){
 				this.x-=bulletSpeed;
 			}
+			
+			trace(_root);
+			
 			
 		}
 	}

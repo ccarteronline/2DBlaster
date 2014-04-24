@@ -56,11 +56,22 @@
 		
 		
 		private function gameLoop(e:Event){
-			trace("normal");
+			
 			//check if charcter hit the bounds
 			if(myCharacter.hitTestObject(_root.bound_top) || myCharacter.hitTestObject(_root.bound_right) || myCharacter.hitTestObject(_root.bound_bottom) || myCharacter.hitTestObject(_root.bound_left)){
-				trace('you hit the object');
+				//trace('you hit the object');
 			}
+			
+			//bullet collisions
+			if(myCharacter._bullet!=null && _root.bound_right.hitTestObject(myCharacter._bullet)){
+				trace("remove right ");
+				stage.removeChild(myCharacter._bullet);
+			}else if(myCharacter._bullet!=null && _root.bound_left.hitTestObject(myCharacter._bullet)){
+				trace("remove left ");
+				stage.removeChild(myCharacter._bullet);
+			}
+			
+				
 		}
 
 	} //end class
