@@ -24,8 +24,10 @@
 				this.x-=bulletSpeed;
 			}
 			
-			trace(_root);
-			
+			if(_root.myTile1.bulletHit == true){
+				trace('exists!');
+			}
+						
 			
 		}
 	}

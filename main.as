@@ -63,13 +63,8 @@
 			}
 			
 			//bullet collisions
-			if(myCharacter._bullet!=null && _root.bound_right.hitTestObject(myCharacter._bullet)){
-				trace("remove right ");
-				stage.removeChild(myCharacter._bullet);
-			}else if(myCharacter._bullet!=null && _root.bound_left.hitTestObject(myCharacter._bullet)){
-				trace("remove left ");
-				stage.removeChild(myCharacter._bullet);
-			}
+			
+			
 			
 				
 		}

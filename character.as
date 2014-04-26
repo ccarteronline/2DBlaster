@@ -50,11 +50,11 @@
 		}
 		
 		public function shoot(){
-			 _bullet = new bullet(this.facingPosition);
+			_bullet = new bullet(this.facingPosition);
 			_bullet.x = this.x;
 			_bullet.y = this.y;
 			//
-			stage.addChild(_bullet);
+			stage.addChild(this._bullet);
 		}
 	}
 	
