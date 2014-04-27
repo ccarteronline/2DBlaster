@@ -9,13 +9,26 @@
 		
 		private var _root = MovieClip(root);
 		
-		public function GameControls() {
+		public function GameControls(onState:Boolean, xPosition:Number, yPosition:Number) {
 			// constructor code
-			this.upButton.addEventListener(MouseEvent.MOUSE_DOWN, jump);
-			this.rightButton.addEventListener(MouseEvent.MOUSE_DOWN, moveRight);
-			this.downButton.addEventListener(MouseEvent.MOUSE_DOWN, moveDown);
-			this.leftButton.addEventListener(MouseEvent.MOUSE_DOWN, moveLeft);
-			this.dpadShoot.addEventListener(MouseEvent.MOUSE_DOWN, shoot);
+			if(onState){
+				this.upButton.addEventListener(MouseEvent.MOUSE_MOVE, jump);
+				this.rightButton.addEventListener(MouseEvent.MOUSE_MOVE, moveRight);
+				this.downButton.addEventListener(MouseEvent.MOUSE_MOVE, moveDown);
+				this.leftButton.addEventListener(MouseEvent.MOUSE_MOVE, moveLeft);
+				this.dpadShoot.addEventListener(MouseEvent.MOUSE_MOVE, shoot);
+			}else{
+				trace("game controls disabled");
+				this.upButton.visible = false;
+				this.rightButton.visible = false;
+				this.downButton.visible = false;
+				this.leftButton.visible = false;
+				this.dpadShoot.visible = false;
+			}
+			
+			
+			this.x = xPosition;
+			this.y = yPosition;
 		}
 		public function jump(e:MouseEvent){
 			
@@ -37,7 +50,7 @@
 		}
 		private function shoot(e:MouseEvent){
 			
-			MovieClip(root).myCharacter.shoot();//shoot the bullet from the character
+			_root.myCharacter.shoot();//shoot the bullet from the character
 		}
 	}
 	

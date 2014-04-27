@@ -4,16 +4,13 @@
 	import flash.events.KeyboardEvent;
 	import flash.display.MovieClip;
 	import flash.events.Event;
+	import flash.display.StageScaleMode;
 
 	public class main extends MovieClip {
 		public var myCharacter: character = new character();
 		private var _root = MovieClip(root);
+		public var gameController:GameControls = new GameControls(true, 125.20, 526);
 		
-		//make bounds public
-		public var leftBounds = _root.bound_left;
-		public var rightBounds = _root.bound_right;
-		
-
 		public function main() {
 			// constructor code
 			myCharacter.gravityStrength = 20;//give
@@ -28,6 +25,12 @@
 			
 			//add game loop
 			stage.addEventListener(Event.ENTER_FRAME, gameLoop);
+			
+			//stretch the screen to fit on the device
+			stage.scaleMode = StageScaleMode.EXACT_FIT;
+			
+			//game controlls
+			stage.addChild(gameController);
 
 		}
 

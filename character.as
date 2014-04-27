@@ -9,7 +9,7 @@
 		private var defaultHeldGravity:Number;
 		private var jumping:Boolean = false;
 		private var jumpThreshold:Number = 0;
-		public var maxJump:Number = 3;
+		public var maxJump:Number = 2;
 		public var facingPosition:String = "right";//character faces right by default
 		public var _bullet:bullet;
 		
