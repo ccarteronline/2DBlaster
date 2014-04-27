@@ -5,13 +5,19 @@
 	import flash.display.MovieClip;
 	import flash.events.Event;
 	import flash.display.StageScaleMode;
+	import flash.utils.Timer;
 
 	public class main extends MovieClip {
 		public var myCharacter: character = new character();
 		public var healthBars:characterBars = new characterBars();
 		private var _root = MovieClip(root);
 		public var displayEnemies:enemySpray;
-		public var numEnemies:Number = 10;
+		public var numEnemies:Number = 1;
+		
+		//enemy variables
+		private var spawnStarter:Number = 1;
+		private var spawnThreshold:Number = 30;
+		private var enemyObjectHolder:enemy;
 		
 		public function main() {
 			// constructor code
@@ -28,27 +34,23 @@
 			
 			//stretch the screen to fit on the device
 			stage.scaleMode = StageScaleMode.EXACT_FIT;
-			
-			
-			
-			
-			this.createEnemys();
-			
+		
 			//displayEnemies = new enemySpray(myEnemy);
 			
 		}
 		
-		private function createEnemys(){
+		private function createEnemys(numEn:Number, g:Number){
 			
-			for(var i:Number = 1; i<=this.numEnemies; i++){
+			for(var i:Number = 1; i<=numEn; i++){
 				var myEnemy:enemy = new enemy();
 				
 				myEnemy.x = Math.random() * (960 - 1)+ 1;
+				myEnemy.y = Math.random() *(0 -200)+ 0;
 				//add enemy to stage to test on 
-				myEnemy.gravityStrength = 12;
+				myEnemy.gravityStrength = g;
 				stage.addChild(myEnemy);
+				enemyObjectHolder = myEnemy;
 				
-				;
 			}
 		}
 		private function keyPressed(event: KeyboardEvent): void {
@@ -80,10 +82,22 @@
 		
 		
 		private function gameLoop(e:Event){
+			spawnStarter++;
 			
 			//check if charcter hit the bounds
 			if(myCharacter.hitTestObject(_root.bound_top) || myCharacter.hitTestObject(_root.bound_right) || myCharacter.hitTestObject(_root.bound_bottom) || myCharacter.hitTestObject(_root.bound_left)){
 				//trace('you hit the object');
+			}
+			
+			//increment the enemy spawn threshold
+			if(spawnStarter == spawnThreshold){
+				this.createEnemys(this.numEnemies, 2);
+				spawnStarter = 0;
+			}
+			if(enemyObjectHolder != null){
+				if(_root.bound_bottom.hitTestObject(enemyObjectHolder)){
+					trace("HIT!");
+				}
 			}
 				
 		}
