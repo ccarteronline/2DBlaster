@@ -14,7 +14,7 @@
 			this.addEventListener(Event.ENTER_FRAME, loop);
 		}
 		private function loop(e:Event){
-			
+			//trace(MovieClip(root).enemyObjectHolder);
 		}
 	}
 	

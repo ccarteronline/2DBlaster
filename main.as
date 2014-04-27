@@ -39,7 +39,7 @@
 			
 		}
 		
-		private function createEnemys(numEn:Number, g:Number){
+		private function createEnemies(numEn:Number, g:Number){
 			
 			for(var i:Number = 1; i<=numEn; i++){
 				var myEnemy:enemy = new enemy();
@@ -91,14 +91,13 @@
 			
 			//increment the enemy spawn threshold
 			if(spawnStarter == spawnThreshold){
-				this.createEnemys(this.numEnemies, 2);
+				this.createEnemies(this.numEnemies, 2);
 				spawnStarter = 0;
 			}
 			if(enemyObjectHolder != null){
-				if(_root.bound_bottom.hitTestObject(enemyObjectHolder)){
-					trace("HIT!");
-				}
+				
 			}
+			//trace(enemyObjectHolder.name);
 				
 		}
 		public function putCharacterOnStage(xPos:Number, yPos:Number){
