@@ -31,6 +31,10 @@
 				//characterToBeHit.y-=gravityStrength;
 				characterToBeHit.y = (this.y -characterTileThreshold);
 			}
+			
+			//if(this.hitTestObject(MovieClip(root).myEnemy)){
+				//trace("STOP!");
+			//}
 		}
 	}
 	

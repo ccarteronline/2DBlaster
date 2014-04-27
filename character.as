@@ -18,26 +18,26 @@
 			// constructor code
 			this.addEventListener(Event.ENTER_FRAME, this.characterFrames);
 			//place the health bars above the character
-			//healthBars.x = this.x;
-			//healthBars.y = this.y;
-			//this.addChild(healthBars);
 		}
 		
 		private function characterFrames(e:Event){
 						
 			if(jumping){
 				if(jumpThreshold != maxJump){
+					
 					this.gravityStrength--;
 					this.createGravity(gravityStrength);
 					jumpThreshold++;
 					
 				}else if(jumpThreshold == maxJump){
+					
 					this.gravityStrength = this.defaultHeldGravity;
 					jumping = false;//stop jumping
 					jumpThreshold = 0;
 				}
 				
 			}else{
+				
 				this.createGravity(gravityStrength);
 			}
 			

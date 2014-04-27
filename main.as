@@ -10,10 +10,11 @@
 		public var myCharacter: character = new character();
 		public var healthBars:characterBars = new characterBars();
 		private var _root = MovieClip(root);
+		public var displayEnemies:enemySpray;
+		public var numEnemies:Number = 10;
 		
 		public function main() {
 			// constructor code
-			myCharacter.gravityStrength = 20;//give
 			
 			include "level1.as";//start with the tile setup of level1
 
@@ -28,10 +29,28 @@
 			//stretch the screen to fit on the device
 			stage.scaleMode = StageScaleMode.EXACT_FIT;
 			
-			//game controlls
-
+			
+			
+			
+			this.createEnemys();
+			
+			//displayEnemies = new enemySpray(myEnemy);
+			
 		}
-
+		
+		private function createEnemys(){
+			
+			for(var i:Number = 1; i<=this.numEnemies; i++){
+				var myEnemy:enemy = new enemy();
+				
+				myEnemy.x = Math.random() * (960 - 1)+ 1;
+				//add enemy to stage to test on 
+				myEnemy.gravityStrength = 12;
+				stage.addChild(myEnemy);
+				
+				;
+			}
+		}
 		private function keyPressed(event: KeyboardEvent): void {
 			
 			//trace("User is pressing key:", event.keyCode);
@@ -69,8 +88,9 @@
 				
 		}
 		public function putCharacterOnStage(xPos:Number, yPos:Number){
-			var healthBars:characterBars = new characterBars();
+			var healthBars:characterBars = new characterBars
 			
+			myCharacter.gravityStrength = 20;//give
 			myCharacter.x = xPos;
 			myCharacter.y = yPos;
 			

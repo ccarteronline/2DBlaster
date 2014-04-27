@@ -11,6 +11,12 @@ myTile3.didCharacterContact(myCharacter, myCharacter.gravityStrength);
 myTile4.didCharacterContact(myCharacter, myCharacter.gravityStrength);
 myTile5.didCharacterContact(myCharacter, myCharacter.gravityStrength);
 
+/*myTile1.didCharacterContact(myEnemy, myEnemy.gravityStrength);
+myTile2.didCharacterContact(myEnemy, myEnemy.gravityStrength);
+myTile3.didCharacterContact(myEnemy, myEnemy.gravityStrength);
+myTile4.didCharacterContact(myEnemy, myEnemy.gravityStrength);
+myTile5.didCharacterContact(myEnemy, myEnemy.gravityStrength);*/
+
 
 //align the placement of the first tile first set
 myTile1.x = 67.30;
