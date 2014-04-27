@@ -9,26 +9,13 @@
 		
 		private var _root = MovieClip(root);
 		
-		public function GameControls(onState:Boolean, xPosition:Number, yPosition:Number) {
+		public function GameControls() {
 			// constructor code
-			if(onState){
-				this.upButton.addEventListener(MouseEvent.MOUSE_MOVE, jump);
-				this.rightButton.addEventListener(MouseEvent.MOUSE_MOVE, moveRight);
-				this.downButton.addEventListener(MouseEvent.MOUSE_MOVE, moveDown);
-				this.leftButton.addEventListener(MouseEvent.MOUSE_MOVE, moveLeft);
-				this.dpadShoot.addEventListener(MouseEvent.MOUSE_MOVE, shoot);
-			}else{
-				trace("game controls disabled");
-				this.upButton.visible = false;
-				this.rightButton.visible = false;
-				this.downButton.visible = false;
-				this.leftButton.visible = false;
-				this.dpadShoot.visible = false;
-			}
-			
-			
-			this.x = xPosition;
-			this.y = yPosition;
+			this.upButton.addEventListener(MouseEvent.MOUSE_MOVE, jump);
+			this.rightButton.addEventListener(MouseEvent.MOUSE_MOVE, moveRight);
+			this.downButton.addEventListener(MouseEvent.MOUSE_MOVE, moveDown);
+			this.leftButton.addEventListener(MouseEvent.MOUSE_MOVE, moveLeft);
+			this.dpadShoot.addEventListener(MouseEvent.MOUSE_MOVE, shoot);
 		}
 		public function jump(e:MouseEvent){
 			

@@ -8,8 +8,8 @@
 
 	public class main extends MovieClip {
 		public var myCharacter: character = new character();
+		public var healthBars:characterBars = new characterBars();
 		private var _root = MovieClip(root);
-		public var gameController:GameControls = new GameControls(true, 125.20, 526);
 		
 		public function main() {
 			// constructor code
@@ -17,8 +17,7 @@
 			
 			include "level1.as";//start with the tile setup of level1
 
-			myCharacter.x = 20;
-			stage.addChild(myCharacter);
+			this.putCharacterOnStage(20,0);
 			
 			//add keyboard controls
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, keyPressed);
@@ -30,7 +29,6 @@
 			stage.scaleMode = StageScaleMode.EXACT_FIT;
 			
 			//game controlls
-			stage.addChild(gameController);
 
 		}
 
@@ -68,12 +66,19 @@
 			if(myCharacter.hitTestObject(_root.bound_top) || myCharacter.hitTestObject(_root.bound_right) || myCharacter.hitTestObject(_root.bound_bottom) || myCharacter.hitTestObject(_root.bound_left)){
 				//trace('you hit the object');
 			}
-			
-			//bullet collisions
-			
-			
-			
 				
+		}
+		public function putCharacterOnStage(xPos:Number, yPos:Number){
+			var healthBars:characterBars = new characterBars();
+			
+			myCharacter.x = xPos;
+			myCharacter.y = yPos;
+			
+			this.healthBars.x = myCharacter.x;
+			this.healthBars.y = myCharacter.y;
+			
+			stage.addChild(myCharacter);
+			stage.addChild(healthBars);
 		}
 
 	} //end class

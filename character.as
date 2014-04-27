@@ -12,14 +12,19 @@
 		public var maxJump:Number = 2;
 		public var facingPosition:String = "right";//character faces right by default
 		public var _bullet:bullet;
+		public var healthBars:characterBars = new characterBars();
 		
 		public function character() {
 			// constructor code
 			this.addEventListener(Event.ENTER_FRAME, this.characterFrames);
+			//place the health bars above the character
+			//healthBars.x = this.x;
+			//healthBars.y = this.y;
+			//this.addChild(healthBars);
 		}
 		
 		private function characterFrames(e:Event){
-			
+						
 			if(jumping){
 				if(jumpThreshold != maxJump){
 					this.gravityStrength--;
