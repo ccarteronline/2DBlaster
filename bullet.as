@@ -3,7 +3,6 @@
 	import flash.display.MovieClip;
 	import flash.events.Event;
 	
-	
 	public class bullet extends MovieClip {
 		private var _root = MovieClip(root);
 		public var bulletSpeed:Number = 10;
@@ -16,7 +15,6 @@
 			this.bulletPosition = bPosition;
 		}
 		private function moveBullet(event:Event){
-			//trace(this.bulletPosition);
 			if(this.bulletPosition == "right"){
 				this.x+=bulletSpeed;
 				
@@ -24,11 +22,15 @@
 				this.x-=bulletSpeed;
 			}
 			
-			if(_root.myTile1.bulletHit == true){
-				trace('exists!');
-			}
-						
+			this.cleanUpBullets();//remove the bullets if they hit the bounds
 			
+		}
+		private function cleanUpBullets(){
+			if(this.x>960 || this.x<-5){
+				trace("remove this");
+				this.removeEventListener(Event.ENTER_FRAME, moveBullet);
+				stage.removeChild(this);
+			}
 		}
 	}
 	

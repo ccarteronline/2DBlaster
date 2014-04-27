@@ -17,11 +17,12 @@
 			if(this._root.myCharacter._bullet == null){
 				trace("looping");
 			}else{
-				if(this.hitTestObject(this._root.myCharacter._bullet)){
-					trace("HIT!");
+				//if(this.hitTestObject(this._root.myCharacter._bullet)){
+					//trace("HIT!");
 					//signal the that the bullet did hit
-					this.bulletHit = true;
-				}
+					//this.bulletHit = true;
+					//removeChild(_root.myCharacter._bullet);
+				///}
 			}
 		}
 	}

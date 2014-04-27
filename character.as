@@ -53,6 +53,8 @@
 			_bullet = new bullet(this.facingPosition);
 			_bullet.x = this.x;
 			_bullet.y = this.y;
+			
+			//trace(this._bullet.numChildren);
 			//
 			stage.addChild(this._bullet);
 		}

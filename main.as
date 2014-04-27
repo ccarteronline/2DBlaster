@@ -9,6 +9,10 @@
 		public var myCharacter: character = new character();
 		private var _root = MovieClip(root);
 		
+		//make bounds public
+		public var leftBounds = _root.bound_left;
+		public var rightBounds = _root.bound_right;
+		
 
 		public function main() {
 			// constructor code
