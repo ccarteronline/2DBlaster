@@ -16,14 +16,19 @@
 			this.createGravity(gravityStrength);
 			
 			//check if at the end of bounds
-			if(this.y>= 480){
+			if(this.y>= 640){
 				this.explode = true;
 				trace('This is where it should explode');
+				this.die();
 			}
 		}
 		
 		public function createGravity(amount:Number){
 			this.y = (this.y + amount);
+		}
+		private function die(){
+			this.removeEventListener(Event.ENTER_FRAME, enemyLoop);
+			stage.removeChild(this);
 		}
 	}
 	

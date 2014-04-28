@@ -15,6 +15,7 @@
 		}
 		private function loop(e:Event){
 			//trace(MovieClip(root).enemyObjectHolder);
+			
 		}
 	}
 	

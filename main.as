@@ -91,12 +91,10 @@
 			
 			//increment the enemy spawn threshold
 			if(spawnStarter == spawnThreshold){
-				this.createEnemies(this.numEnemies, 2);
+				this.createEnemies(this.numEnemies, 5);
 				spawnStarter = 0;
 			}
-			if(enemyObjectHolder != null){
-				
-			}
+		
 			//trace(enemyObjectHolder.name);
 				
 		}
