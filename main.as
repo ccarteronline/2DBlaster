@@ -94,6 +94,14 @@
 				this.createEnemies(this.numEnemies, 5);
 				spawnStarter = 0;
 			}
+			
+			if(myCharacter._bullet != null){
+				trace(myCharacter._bullet.name);
+				trace(enemyObjectHolder.name);
+				if(myCharacter._bullet.hitTestObject(enemyObjectHolder)){
+					trace('delete!');
+				}
+			}
 		
 			//trace(enemyObjectHolder.name);
 				
@@ -104,6 +112,7 @@
 			myCharacter.gravityStrength = 20;//give
 			myCharacter.x = xPos;
 			myCharacter.y = yPos;
+			myCharacter.name = "myCharacter";
 			
 			this.healthBars.x = myCharacter.x;
 			this.healthBars.y = myCharacter.y;
